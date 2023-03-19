@@ -39,3 +39,22 @@ def generate_chunk(x,y):
                 tile_type = 2
             elif target_y == 10:
                 tile_type = 1
+            elif target_y == 9:
+                if random.randint(1,5) == 1:
+                    tile_type = 3 
+            if tile_type != 0:
+                chunk_data.append([[target_x,target_y],tile_type])
+    return chunk_data
+
+global animation_frames
+animation_frames = {}
+
+def load_animation(path,frame_durations):
+    global animation_frames
+    animation_name = path.split('/')[-1]
+    animation_frame_data = []
+    n = 0
+    for frame in frame_durations:
+        animation_frame_id = animation_name + '_' + str(n)
+        img_loc = path + '/' + animation_frame_id + '.png'
+        animation_image = pygame.image.load(img_loc).convert()
