@@ -99,3 +99,22 @@ def move(rect,movement,tiles):
             collision_types['left'] = True
     rect.y += movement[1]
     hit_list = collision_test(rect,tiles)
+    for tile in hit_list:
+        if movement[1] > 0:
+            rect.bottom = tile.top
+            collision_types['bottom'] = True
+        elif movement[1] < 0:
+            rect.top = tile.bottom
+            collision_types['top'] = True
+    return rect, collision_types
+
+def mainmenu():
+    
+    menu=True
+    selected="start"
+    
+    pygame.mixer.music.load('C:/Users/user/Documents/PyGameFolder/music/music.mp3')
+    pygame.mixer.music.play(-1)
+    while menu:
+        for event in pygame.event.get():
+            if event.type==pygame.QUIT:
