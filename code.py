@@ -118,3 +118,20 @@ def mainmenu():
     while menu:
         for event in pygame.event.get():
             if event.type==pygame.QUIT:
+                pygame.quit()
+                quit()
+            if event.type==pygame.KEYDOWN:
+                if event.key==pygame.K_UP:
+                    selected="start"
+                elif event.key==pygame.K_DOWN:
+                    selected="quit"
+                if event.key==pygame.K_RETURN:
+                    if selected=="start":
+                        choosecharc()
+                    if selected=="quit":
+                        pygame.quit()
+                        quit()
+                if event.key==pygame.K_ESCAPE:
+                    pygame.quit()
+                    quit()
+ 
