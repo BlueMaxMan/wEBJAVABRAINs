@@ -135,3 +135,21 @@ def mainmenu():
                     pygame.quit()
                     quit()
  
+
+        screen.fill((52,62,67))
+        title0=text_format("STUPID GAME", font, 25, (153,166,195))
+        title=text_format("UP/DOWN ARROW KEY TO CHOOSE", font, 15, (153,166,195))
+        title1=text_format("ENTER FOR CONFIRMATION", font, 15, (153,166,195))
+        if selected=="start":
+            text_start=text_format("START", font, 20, white)
+        else:
+            text_start = text_format("START", font, 20, black)
+        if selected=="quit":
+            text_quit=text_format("QUIT", font, 20, white)
+        else:
+            text_quit = text_format("QUIT", font, 20, black)
+        title0_rect=title0.get_rect()
+        title_rect=title.get_rect()
+        title1_rect=title1.get_rect()
+        start_rect=text_start.get_rect()
+        quit_rect=text_quit.get_rect()
