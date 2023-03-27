@@ -172,3 +172,23 @@ def choosecharc():
     pygame.mixer.music.play(-1)
     menu=True
     selected="start"
+    mage_img = pygame.image.load('C:/Users/user/Documents/PyGameFolder/mage.png').convert()
+    mage_img.set_colorkey((255,255,255))
+    gunner_img = pygame.image.load('C:/Users/user/Documents/PyGameFolder/pewpewanimation/idle/idle_0.png').convert()
+    gunner_img.set_colorkey((255,255,255))
+    while menu:
+        for event in pygame.event.get():
+            if event.type==pygame.QUIT:
+                pygame.quit()
+                quit()
+            if event.type==pygame.KEYDOWN:
+                if event.key==pygame.K_UP:
+                    selected="start"
+                elif event.key==pygame.K_DOWN:
+                    selected="quit"
+                if event.key==pygame.K_RETURN:
+                    if selected=="start":
+                        num = 1
+                        game(num)
+                    if selected=="quit":
+                        num = 2
