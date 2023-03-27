@@ -153,3 +153,22 @@ def mainmenu():
         title1_rect=title1.get_rect()
         start_rect=text_start.get_rect()
         quit_rect=text_quit.get_rect()
+
+
+
+        screen.blit(title0, (screen_width/2 - (title0_rect[2]/2), 50))
+        screen.blit(title, (screen_width/2 - (title_rect[2]/2), 80))
+        screen.blit(title1, (screen_width/2 - (title1_rect[2]/2), 100))
+        screen.blit(text_start, (screen_width/2 - (start_rect[2]/2), 300))
+        screen.blit(text_quit, (screen_width/2 - (quit_rect[2]/2), 360))
+        pygame.display.update()
+        clock.tick(60)
+        pygame.display.set_caption("mak gam")
+
+def choosecharc():
+    global num 
+    num = 1
+    pygame.mixer.music.load('C:/Users/user/Documents/PyGameFolder/music/lull.mp3')
+    pygame.mixer.music.play(-1)
+    menu=True
+    selected="start"
