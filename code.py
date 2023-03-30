@@ -212,3 +212,19 @@ def choosecharc():
         quit_rect=text_quit.get_rect()
 
         screen.blit(title0, (screen_width/2 - (title0_rect[2]/2), 50))
+        screen.blit(text_start, (screen_width/2 - (start_rect[2]/2), 300))
+        screen.blit(text_quit, (screen_width/2 - (quit_rect[2]/2), 360))
+        screen.blit(gunner_img, (screen_width/2 - (start_rect[2]), 300))
+        screen.blit(mage_img, (screen_width/2 - (quit_rect[2] + 30), 340))
+        pygame.display.update()
+        clock.tick(60)
+        pygame.display.set_caption("mak gam")
+
+def inventory():
+    global WINDOW_SIZE, num, inventory_size
+    screen = pygame.display.set_mode(WINDOW_SIZE)
+    screen.fill((52,62,67))
+    inventory_img = pygame.image.load('C:/Users/user/Documents/PyGameFolder/inventory.png').convert()
+    inventory_img.set_colorkey((255,255,255))
+    biginventory_img = pygame.transform.smoothscale(inventory_img,(int(screen_width),int((screen_height/2))))
+    inventory_rect = biginventory_img.get_rect()
