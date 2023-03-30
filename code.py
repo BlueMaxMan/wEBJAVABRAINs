@@ -192,3 +192,23 @@ def choosecharc():
                         game(num)
                     if selected=="quit":
                         num = 2
+                        game(num)
+                if event.key==pygame.K_ESCAPE:
+                    mainmenu()
+
+
+        screen.fill((52,62,67))
+        title0=text_format("CHOOSE CHARACTER", font, 25, (153,166,195))
+        if selected=="start":
+            text_start=text_format("GUNNER", font, 20, white)
+        else:
+            text_start = text_format("GUNNER", font, 20, black)
+        if selected=="quit":
+            text_quit=text_format("MAGE", font, 20, white)
+        else:
+            text_quit = text_format("MAGE", font, 20, black)
+        title0_rect=title0.get_rect()
+        start_rect=text_start.get_rect()
+        quit_rect=text_quit.get_rect()
+
+        screen.blit(title0, (screen_width/2 - (title0_rect[2]/2), 50))
