@@ -228,3 +228,17 @@ def inventory():
     inventory_img.set_colorkey((255,255,255))
     biginventory_img = pygame.transform.smoothscale(inventory_img,(int(screen_width),int((screen_height/2))))
     inventory_rect = biginventory_img.get_rect()
+    title = text_format("Inventory",font,50,(81,51,59))
+    title_rect = title.get_rect()
+    while True:
+        screen.blit(biginventory_img, (screen_width/2 - (inventory_rect[2]/2), 130))
+        screen.blit(title, (screen_width/2 - (title_rect[2]/2), 50))
+        for event in pygame.event.get(): 
+                if event.type == KEYDOWN:
+                    if event.key == K_ESCAPE or event.key == K_e:
+                        game(num)
+                    else:
+                        inventory()
+
+        pygame.display.update()
+        clock.tick(60)
