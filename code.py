@@ -242,3 +242,16 @@ def inventory():
 
         pygame.display.update()
         clock.tick(60)
+
+
+def game(a):
+    pygame.mixer.music.load('C:/Users/user/Documents/PyGameFolder/music/pop.mp3')
+    pygame.mixer.music.play(-1)
+    if a == 1:
+        animation_database = {}
+        animation_database['run'] = load_animation('C:/Users/user/Documents/PyGameFolder/pewpewanimation/run',[7,7])
+        animation_database['idle'] = load_animation('C:/Users/user/Documents/PyGameFolder/pewpewanimation/idle',[7,7,40])
+    elif a == 2:
+        animation_database = {}
+        animation_database['run'] = pygame.image.load('C:/Users/user/Documents/PyGameFolder/mage.png')
+        animation_database['idle'] = pygame.image.load('C:/Users/user/Documents/PyGameFolder/mage.png')
