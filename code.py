@@ -255,3 +255,20 @@ def game(a):
         animation_database = {}
         animation_database['run'] = pygame.image.load('C:/Users/user/Documents/PyGameFolder/mage.png')
         animation_database['idle'] = pygame.image.load('C:/Users/user/Documents/PyGameFolder/mage.png')
+    global display
+    display = pygame.Surface((300,200)) ; moving_right = False ; moving_left = False ; move_down = False ;vertical_momentum = 0 ; air_timer = 0 ; true_scroll = [0,0] ; sprint = False
+    
+
+    game_map = {}
+
+    grass_img = pygame.image.load('C:/Users/user/Documents/PyGameFolder/grass.png')
+    dirt_img = pygame.image.load('C:/Users/user/Documents/PyGameFolder/dirt.png')
+    plant_img = pygame.image.load('C:/Users/user/Documents/PyGameFolder/plant.png').convert()
+    plant_img.set_colorkey((255,255,255))
+    rock_img = pygame.image.load('C:/Users/user/Documents/PyGameFolder/rock.png')
+    cobble_img = pygame.image.load('C:/Users/user/Documents/PyGameFolder/cobble.png')
+
+    tile_index = {
+        1:grass_img,
+        2:dirt_img,
+        3:plant_img,
