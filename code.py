@@ -272,3 +272,17 @@ def game(a):
         1:grass_img,
         2:dirt_img,
         3:plant_img,
+        4:rock_img,
+        5:cobble_img
+        }
+
+
+    jump_sound = pygame.mixer.Sound('C:/Users/user/Documents/PyGameFolder/jump.wav')
+    grass_sounds = [pygame.mixer.Sound('C:/Users/user/Documents/PyGameFolder/grass_0.wav'),pygame.mixer.Sound('C:/Users/user/Documents/PyGameFolder/grass_1.wav')]
+    grass_sounds[0].set_volume(0.2)
+    grass_sounds[1].set_volume(0.2)
+
+
+
+    player_action = 'idle'
+    player_frame = 0
