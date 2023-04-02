@@ -286,3 +286,28 @@ def game(a):
 
     player_action = 'idle'
     player_frame = 0
+    player_flip = False
+
+    grass_sound_timer = 0
+
+    player_rect = pygame.Rect(100,100,23,23)
+
+    background_objects = [[0.25,[120,10,70,400]],[0.25,[280,30,40,400]],[0.5,[30,40,40,400]],[0.5,[130,90,100,400]],[0.5,[300,80,120,400]]]
+
+    while True: 
+
+        display.fill((146,244,255)) 
+
+        if grass_sound_timer > 0:
+            grass_sound_timer -= 1
+
+        true_scroll[0] += (player_rect.x-true_scroll[0]-152)/20
+        true_scroll[1] += (player_rect.y-true_scroll[1]-106)/20
+        scroll = true_scroll.copy()
+        scroll[0] = int(scroll[0])
+        scroll[1] = int(scroll[1])
+        pygame.draw.rect(display,(7,80,75),pygame.Rect(0,120,300,80))
+        for background_object in background_objects:
+            obj_rect = pygame.Rect(background_object[1][0]-scroll[0]*background_object[0],background_object[1][1]-scroll[1]*background_object[0],background_object[1][2],background_object[1][3])
+            if background_object[0] == 0.5:
+                pygame.draw.rect(display,(14,222,150),obj_rect)
