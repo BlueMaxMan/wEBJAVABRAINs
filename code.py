@@ -311,3 +311,14 @@ def game(a):
             obj_rect = pygame.Rect(background_object[1][0]-scroll[0]*background_object[0],background_object[1][1]-scroll[1]*background_object[0],background_object[1][2],background_object[1][3])
             if background_object[0] == 0.5:
                 pygame.draw.rect(display,(14,222,150),obj_rect)
+            else:
+                pygame.draw.rect(display,(9,91,85),obj_rect)
+
+        global tile_rects
+        tile_rects = []
+        for y in range(3):
+            for x in range(4):
+                target_x = x - 1 + int(round(scroll[0]/(CHUNK_SIZE*16)))
+                target_y = y - 1 + int(round(scroll[1]/(CHUNK_SIZE*16)))
+                target_chunk = str(target_x) + ';' + str(target_y)
+                if target_chunk not in game_map:
