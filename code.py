@@ -346,3 +346,22 @@ def game(a):
         
         
         player_movement[1] += vertical_momentum
+        vertical_momentum += 0.2
+        if vertical_momentum > 3:
+            vertical_momentum = 3
+        
+        if player_movement[0] == 0:
+            player_action,player_frame = change_action(player_action,player_frame,'idle')
+        if player_movement[0] > 0:
+            player_flip = False
+            player_action,player_frame = change_action(player_action,player_frame,'run')
+        if player_movement[0] < 0:
+            player_flip = True
+            player_action,player_frame = change_action(player_action,player_frame,'run')
+
+        player_rect,collisions = move(player_rect,player_movement,tile_rects)
+
+        if collisions['bottom'] == True:
+            air_timer = 0
+            vertical_momentum = 0
+            if player_movement[0] != 0:
