@@ -322,3 +322,27 @@ def game(a):
                 target_y = y - 1 + int(round(scroll[1]/(CHUNK_SIZE*16)))
                 target_chunk = str(target_x) + ';' + str(target_y)
                 if target_chunk not in game_map:
+                    game_map[target_chunk] = generate_chunk(target_x,target_y)
+                for tile in game_map[target_chunk]:
+                    display.blit(tile_index[tile[1]],(tile[0][0]*16-scroll[0],tile[0][1]*16-scroll[1]))
+                    if tile[1] in [1,2]:
+                        tile_rects.append(pygame.Rect(tile[0][0]*16,tile[0][1]*16,16,16))    
+
+        global player_movement
+        player_movement = [0,0]
+        
+        if moving_right == True:
+            if sprint == True:
+                player_movement[0] += 4
+            else: 
+                player_movement[0] += 2
+        if moving_left == True:
+            if sprint == True:
+                player_movement[0] -= 4
+            else:
+                player_movement[0] -= 2
+        if move_down == True:
+            vertical_momentum += 2
+        
+        
+        player_movement[1] += vertical_momentum
