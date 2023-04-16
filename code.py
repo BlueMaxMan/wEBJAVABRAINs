@@ -365,3 +365,18 @@ def game(a):
             air_timer = 0
             vertical_momentum = 0
             if player_movement[0] != 0:
+                if grass_sound_timer == 0:
+                    grass_sound_timer = 30
+                    random.choice(grass_sounds).play()
+        else:
+            air_timer += 1
+
+        player_frame += 1
+        if player_frame >= len(animation_database[player_action]):
+            player_frame = 0
+        player_img_id = animation_database[player_action][player_frame]
+        player_img = animation_frames[player_img_id]
+        display.blit(pygame.transform.flip(player_img,player_flip,False),(player_rect.x-scroll[0],player_rect.y-scroll[1]))
+
+
+        for event in pygame.event.get(): 
