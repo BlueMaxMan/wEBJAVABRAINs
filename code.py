@@ -398,3 +398,22 @@ def game(a):
                 if event.key == K_LSHIFT:
                     sprint = True
                 if event.key == K_e:
+                    inventory()
+            if event.type == KEYUP:
+                if event.key == K_DOWN or event.key == K_s:
+                    move_down = False
+                if event.key == K_RIGHT or event.key == K_d:
+                    moving_right = False
+                if event.key == K_LEFT or event.key == K_a:
+                    moving_left = False
+                if event.key == K_LSHIFT:
+                    sprint = False
+        
+        screen.blit(pygame.transform.scale(display,WINDOW_SIZE),(0,0))
+        pygame.display.update()
+        clock.tick(60)
+
+
+
+if __name__ == "__main__":
+    mainmenu()
