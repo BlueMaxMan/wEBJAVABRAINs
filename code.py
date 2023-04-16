@@ -380,3 +380,21 @@ def game(a):
 
 
         for event in pygame.event.get(): 
+            if event.type == KEYDOWN:
+                if event.key == K_DOWN or event.key == K_s:
+                    move_down = True
+                if event.key == K_q:
+                    pygame.mixer.music.fadeout(1000)
+                if event.key == K_RIGHT or event.key == K_d:
+                    moving_right = True
+                if event.key == K_LEFT or event.key == K_a:
+                    moving_left = True
+                if event.key == K_UP or event.key == K_SPACE or event.key == K_w:
+                    if air_timer < 6:
+                        jump_sound.play()
+                        vertical_momentum = -5
+                if event.key == K_ESCAPE:
+                    mainmenu()
+                if event.key == K_LSHIFT:
+                    sprint = True
+                if event.key == K_e:
